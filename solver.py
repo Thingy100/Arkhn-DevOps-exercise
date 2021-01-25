@@ -28,8 +28,9 @@ def solve_input():
     input_string = request.get_data().decode()
     if input_string == "":
         input_string = requests.get('http://localhost:5000/input').content.decode()
-    print(verify_text(input_string))
-    return input_string + "\n"
+    res = verify_text(input_string)
+    return res + "\n"
 
 if __name__ == "__main__":
+    print("Starting server solver")
     server.run(host="0.0.0.0", port = 5001)
